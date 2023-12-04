@@ -1,0 +1,14 @@
+<html>
+    <h1>Batch</h1>
+    <table>
+        <tr>
+            <th>Batch ID</th>
+        </tr>
+        {% for object in batch %}
+        <tr>
+            <td>{{object.batchid}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <p><a href="/dashboard/">Dashboard</a> <a href="/dashboard/query/">Query SQL</a></p>
+</html>

@@ -1,0 +1,42 @@
+<html>
+    <h1>Deliveries</h1>
+    <table>
+        <tr>
+            <th>Delivery ID</th>
+            <th>Delivery Date</th>
+            <th>Delivery Time</th>
+            <th>Supplier ID</th>
+            <th>Staff ID</th>
+        </tr>
+        {% for object in delivery %}
+        <tr>
+            <td>{{object.deliveryid}}</td>
+            <td>{{object.deliverydate}}</td>
+            <td>{{object.deliverytime}}</td>
+            <td>{{object.supplierid.supplierid}}</td>
+            <td>{{object.staffid.staffid}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h1>Delivery Items</h1>
+    <table>
+        <tr>
+            <th>Delivery ID</th>
+            <th>Item ID</th>
+            <th>Item Quantity</th>
+            <th>Cost</th>
+            <th>Total Cost</th>
+        </tr>
+        {% for object in delivery_item %}
+        <tr>
+            <td>{{object.deliveryid.deliveryid}}</td>
+            <td>{{object.itemid.itemid}}</td>
+            <td>{{object.itemquantity}}</td>
+            <td>{{object.cost}}</td>
+            <td>{{object.totalcost}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <p><a href="/dashboard/">Dashboard</a> <a href="/dashboard/query/">Query SQL</a></p>
+</html>

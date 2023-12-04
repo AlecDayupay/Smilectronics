@@ -1,0 +1,40 @@
+<html>
+    <h1>Item Transfers</h1>
+    <table>
+        <tr>
+            <th>Transfer ID</th>
+            <th>Transfer Date</th>
+            <th>From Batch ID</th>
+            <th>From Agent ID</th>
+            <th>To Batch ID</th>
+            <th>To Agent ID</th>
+        </tr>
+        {% for object in item_transfer %}
+        <tr>
+            <td>{{object.transferid}}</td>
+            <td>{{object.transferdate}}</td>
+            <td>{{object.frombatchid.batchid}}</td>
+            <td>{{object.fromagentid.agentid}}</td>
+            <td>{{object.tobatchid.batchid}}</td>
+            <td>{{object.toagentid.agentid}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h1>Transfer Items</h1>
+    <table>
+        <tr>
+            <th>Transfer ID</th>
+            <th>Item ID</th>
+            <th>Item Quantity</th>
+        </tr>
+        {% for object in transfer_item %}
+        <tr>
+            <td>{{object.transferid.transferid}}</td>
+            <td>{{object.itemid.itemid}}</td>
+            <td>{{object.itemquantity}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <p><a href="/dashboard/">Dashboard</a> <a href="/dashboard/query/">Query SQL</a></p>
+</html>

@@ -1,0 +1,16 @@
+<html>
+    <h1>Client Companies</h1>
+    <table>
+        <tr>
+            <th>Client ID</th>
+            <th>Name</th>
+        </tr>
+        {% for object in client_company %}
+        <tr>
+            <td>{{object.clientid}}</td>
+            <td>{{object.name}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <p><a href="/dashboard/">Dashboard</a> <a href="/dashboard/query/">Query SQL</a></p>
+</html>

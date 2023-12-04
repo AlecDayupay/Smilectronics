@@ -1,0 +1,16 @@
+<html>
+    <h1>Suppliers</h1>
+    <table>
+        <tr>
+            <th>Supplier ID</th>
+            <th>Name</th>
+        </tr>
+        {% for object in supplier %}
+        <tr>
+            <td>{{object.supplierid}}</td>
+            <td>{{object.name}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <p><a href="/dashboard/">Dashboard</a> <a href="/dashboard/query/">Query SQL</a></p>
+</html>

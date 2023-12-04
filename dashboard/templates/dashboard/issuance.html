@@ -1,0 +1,38 @@
+<html>
+    <h1>Issuance</h1>
+    <table>
+        <tr>
+            <th>Issuance ID</th>
+            <th>Issuance Date</th>
+            <th>Staff ID</th>
+            <th>Batch ID</th>
+            <th>Agent ID</th>
+        </tr>
+        {% for object in issuance %}
+        <tr>
+            <td>{{object.issuanceid}}</td>
+            <td>{{object.issuancedate}}</td>
+            <td>{{object.staffid.staffid}}</td>
+            <td>{{object.batchid.batchid}}</td>
+            <td>{{object.agentid.agentid}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h1>Issuance Items</h1>
+    <table>
+        <tr>
+            <th>Issuance ID</th>
+            <th>Item ID</th>
+            <th>Item Quantity</th>
+        </tr>
+        {% for object in issuance_item %}
+        <tr>
+            <td>{{object.issuanceid.issuanceid}}</td>
+            <td>{{object.itemid.itemid}}</td>
+            <td>{{object.itemquantity}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <p><a href="/dashboard/">Dashboard</a> <a href="/dashboard/query/">Query SQL</a></p>
+</html>

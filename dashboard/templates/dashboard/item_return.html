@@ -1,0 +1,36 @@
+<html>
+    <h1>Item Returns</h1>
+    <table>
+        <tr>
+            <th>Return ID</th>
+            <th>Return Date</th>
+            <th>Staff ID</th>
+            <th>Batch ID</th>
+        </tr>
+        {% for object in item_return %}
+        <tr>
+            <td>{{object.returnid}}</td>
+            <td>{{object.returndate}}</td>
+            <td>{{object.staffid.staffid}}</td>
+            <td>{{object.batchid.batchid}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h1>Return Items</h1>
+    <table>
+        <tr>
+            <th>Return ID</th>
+            <th>Item ID</th>
+            <th>Item Quantity</th>
+        </tr>
+        {% for object in return_item %}
+        <tr>
+            <td>{{object.returnid.returnid}}</td>
+            <td>{{object.itemid.itemid}}</td>
+            <td>{{object.itemquantity}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <p><a href="/dashboard/">Dashboard</a> <a href="/dashboard/query/">Query SQL</a></p>
+</html>

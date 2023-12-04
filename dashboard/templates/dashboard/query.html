@@ -1,0 +1,106 @@
+<html>
+    <h1>Query SQL</h1>
+    {% if values != "" %}
+        <p>SELECT {% for value in values %}{{value}}, {% endfor %} FROM {{model}}</p>
+    {% endif %}
+    <table>
+        <tr>
+            {% for value in values %}
+            <td>
+                {{value}}                
+            </td>
+            {% endfor %}
+        </tr>
+        {% for object in objects %}
+        <tr>
+            {% for value in object %}
+            <td>
+                {{ value }}
+            </td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+    <form method="POST" action="/dashboard/query/">{% csrf_token %}
+        <div>
+            <label>SELECT</label>
+            <input type="text" class="form-control mt-2 mb-3" name="values">
+            <label>FROM</label>
+            <input type="text" class="form-control mt-2 mb-3" name="model">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+    <table>
+        <tr><th>Attributes</th><th></th><th>Tables</th></tr>
+        <tr>
+            <td>staffid, </td><td>lastname, firstname</td>
+            <td>dashboard_warehouse_staff</td>
+        </tr>
+        <tr>
+            <td>supplierid, </td><td>name</td>
+            <td>dashboard_supplier</td>
+        </tr>
+        <tr>
+            <td>batchid</td><td></td>
+            <td>dashboard_batch</td>
+        </tr>
+        <tr>
+            <td>clientid, </td><td>name</td>
+            <td>dashboard_client_company</td>
+        </tr>
+        <tr>
+            <td>itemid, </td><td>description, cost, crp, classification, supplierid_id</td>
+            <td>dashboard_item</td>
+        </tr>
+        <tr>
+            <td>agentid, </td><td>lastname, firstname, clientid_id</td>
+            <td>dashboard_sales_agent</td>
+        </tr>
+        <tr>
+            <td>deliveryid, </td><td>deliverydate, deliverytime, supplierid_id, staffid_id</td>
+            <td>dashboard_delivery</td>
+        </tr>
+        <tr>
+            <td>deliveryid_id, </td><td>itemid_id, itemquantity, cost, totalcost</td>
+            <td>dashboard_delivery_item</td>
+        </tr>
+        <tr>
+            <td>issuanceid, </td><td>issuancedate, staffid_id, batchid_id, agentid_id</td>
+            <td>dashboard_issuance</td>
+        </tr>
+        <tr>
+            <td>issuanceid_id, </td><td>itemid_id, itemquantity</td>
+            <td>dashboard_issuance_item</td>
+        </tr>
+        <tr>
+            <td>invoiceid, </td><td>invoicedate, agentid_id, clientid_id</td>
+            <td>dashboard_sales_invoice</td>
+        </tr>
+        <tr>
+            <td>invoiceid_id, </td><td>itemid_id, itemquantity, srp, discountrate, totalsales</td>
+            <td>dashboard_invoice_item</td>
+        </tr>
+        <tr>
+            <td>returnid, </td><td>returndate, staffid_id, batchid_id</td>
+            <td>dashboard_item_return</td>
+        </tr>
+        <tr>
+            <td>returnid_id, </td><td>itemid_id, itemquantity</td>
+            <td>dashboard_return_item</td>
+        </tr>
+        <tr>
+            <td>transferid, </td><td>transferdate, frombatchid_id, fromagentid_id, tobatchid_id, toagentid_id</td>
+            <td>dashboard_item_transfer</td>
+        </tr>
+        <tr>
+            <td>transferid_id, </td><td>itemid_id, itemquantity</td>
+            <td>dashboard_transfer_item</td>
+        </tr>
+        <tr>
+            <td>clientid_id, </td><td>itemid_id, discountrate</td>
+            <td>dashboard_discount</td>
+        </tr>
+    </table>
+
+    <p><a href="/dashboard/">Dashboard</a></p>
+</html>

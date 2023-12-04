@@ -1,0 +1,42 @@
+<html>
+    <h1>Sales Invoice</h1>
+    <table>
+        <tr>
+            <th>Invoice ID</th>
+            <th>Invoice Date</th>
+            <th>Agent ID</th>
+            <th>Client ID</th>
+        </tr>
+        {% for object in sales_invoice %}
+        <tr>
+            <td>{{object.invoiceid}}</td>
+            <td>{{object.invoicedate}}</td>
+            <td>{{object.agentid.agentid}}</td>
+            <td>{{object.clientid.clientid}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h1>Invoice Items</h1>
+    <table>
+        <tr>
+            <th>Invoice ID</th>
+            <th>Item ID</th>
+            <th>Item Quantity</th>
+            <th>SRP</th>
+            <th>Discount Rate</th>
+            <th>Total Sales</th>
+        </tr>
+        {% for object in invoice_item %}
+        <tr>
+            <td>{{object.invoiceid.invoiceid}}</td>
+            <td>{{object.itemid.itemid}}</td>
+            <td>{{object.itemquantity}}</td>
+            <td>{{object.srp}}</td>
+            <td>{{object.discountrate}}</td>
+            <td>{{object.totalsales}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <p><a href="/dashboard/">Dashboard</a> <a href="/dashboard/query/">Query SQL</a></p>
+</html>

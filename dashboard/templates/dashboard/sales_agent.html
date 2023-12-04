@@ -1,0 +1,20 @@
+<html>
+    <h1>Sales Agents</h1>
+    <table>
+        <tr>
+            <th>Agent ID</th>
+            <th>Last Name</th>
+            <th>First Name</th>
+            <th>Client ID</th>
+        </tr>
+        {% for object in sales_agent %}
+        <tr>
+            <td>{{object.agentid}}</td>
+            <td>{{object.lastname}}</td>
+            <td>{{object.firstname}}</td>
+            <td>{{object.clientid.clientid}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <p><a href="/dashboard/">Dashboard</a> <a href="/dashboard/query/">Query SQL</a></p>
+</html>
